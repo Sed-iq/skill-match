@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+:root {
+  --primary-color: #002b90;
+}
+
+body {
+  font-family: "DM Sans", serif;
+}
+
+.lexend {
+  font-family: "Lexend", serif;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
+}
+.lexend-bold {
+  font-family: "Lexend", serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+}
+.lexend-light {
+  font-family: "Lexend", serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.dm-sans {
+  font-family: "DM Sans", serif;
+  font-optical-sizing: auto;
+  font-weight: normal;
+  font-style: normal;
+}
+
+.dm-sans-bold {
+  font-family: "DM Sans", serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  font-style: normal;
+}
+
+.dm-sans-light {
+  font-family: "DM Sans", serif;
+  font-optical-sizing: auto;
+  font-weight: lighter;
+  font-style: normal;
+}
+.primary-bg-color {
+  background-color: #002b90;
+}
+
+.primary-text-color {
+  color: #002b90;
+}
