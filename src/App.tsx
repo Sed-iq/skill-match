@@ -6,7 +6,6 @@ import Not_found from "./screens/not_found";
 import Signup from "./screens/signup";
 import { useViewState as useViewStore } from "./stores/view-store";
 import Loading from "./screens/loading";
-import { SigninProtectedRoute } from "./utils/protected_route";
 import Dashboard from "./screens/dashboard";
 
 export default () => {
