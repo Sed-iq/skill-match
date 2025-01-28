@@ -130,6 +130,10 @@ function Signin(
       navigator("/dashboard");
     }, 1500);
   } else {
-    Toast.error("Incorrect email or password");
+    ViewModel.setLoading(true);
+    setTimeout(() => {
+      ViewModel.setLoading(false);
+      Toast.error("Incorrect email or password");
+    }, 1500);
   }
 }
