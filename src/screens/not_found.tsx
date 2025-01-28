@@ -33,12 +33,12 @@ export default () => {
               Home
             </p>
           </Link>
-          <Link to={"/signin"}>
+          <Link to={"/auth/signin"}>
             <p className="text-[var(--primary-color)] underline  text-xs">
               Signin
             </p>
           </Link>
-          <Link to={"/signup"}>
+          <Link to={"/auth/signup"}>
             <p className="text-[var(--primary-color)] underline  text-xs">
               Signup
             </p>

@@ -8,7 +8,7 @@ interface AuthSlide {
   backward: () => void;
 }
 
-interface SigninInputStore {
+interface SignupInputStore {
   full_name: string;
   email: string;
   password: string;
@@ -17,4 +17,11 @@ interface SigninInputStore {
   setEmail: (value: string) => void;
   setPassword: (value: string) => void;
   setPasswordAgain: (value: string) => void;
+}
+
+interface SigninInputStore {
+  email: string;
+  password: string;
+  setEmail: (value: string) => void;
+  setPassword: (value: string) => void;
 }

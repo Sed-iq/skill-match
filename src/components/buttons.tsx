@@ -10,6 +10,7 @@ const Buttons = {
   }) => {
     return (
       <button
+        // @ts-ignore
         onClick={() => (onClick != undefined ? onClick() : null)}
         className="sm:px-6 px-3 py-2 w-auto sm:w-full selection:pointer-events-none text-white duration-200 hover:cursor-pointer primary-bg-color whitespace-nowrap"
       >

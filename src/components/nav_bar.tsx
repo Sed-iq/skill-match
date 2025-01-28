@@ -4,7 +4,7 @@ import { FaCircle } from "react-icons/fa";
 import Buttons from "./buttons";
 import { useNavigate } from "react-router";
 
-const nav_links = ["Home", "Courses", "Jobs"];
+// const nav_links = ["Home", "Courses", "Jobs"];
 
 export default () => {
   const navigate = useNavigate();
@@ -15,19 +15,19 @@ export default () => {
       </div>
       <div className="flex items-center">
         <div className="flex items-center space-x-[2em]">
-          {nav_links.map((link, index) => {
+          {/* {nav_links.map((link, index) => {
             return <NavLink key={index} index={index} title={link} route="" />;
-          })}
+          })} */}
           <Buttons.primary_button
             onClick={() => {
-              navigate("/signup");
+              navigate("/auth/signup");
             }}
           >
-            <p className="text-sm">Join Us</p>
+            <p className="text-sm font-medium">Join Us</p>
           </Buttons.primary_button>
           <Buttons.custom_outline_button
             onClick={() => {
-              navigate("/signin");
+              navigate("/auth/signin");
             }}
           >
             <p className="text-sm text-[var(--primary-color)]">Sign In</p>
