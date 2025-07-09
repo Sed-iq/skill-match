@@ -6,7 +6,6 @@ import {
   useSigninInputStore,
 } from "../stores/validation-store";
 import Buttons from "../components/buttons";
-import GoogleLogo from "../assets/google_2504739 1.png";
 import { FaArrowLeft } from "react-icons/fa";
 import { NavigateFunction, useNavigate } from "react-router";
 import { Toast } from "../utils/toast_utils";
@@ -81,15 +80,8 @@ export default () => {
                 <p className="text-sm font-medium">Continue</p>
               </Buttons.primary_button>
             </div>
-            <div className="space-y-6 mt-[1.2em]">
-              <div className="flex space-x-5 justify-between items-center">
-                <div className=" border flex-1 border-gray-300"></div>
-                <p className="text-sm text-gray-700">or</p>
-                <div className=" border flex-1 border-gray-300"></div>
-              </div>
-            </div>
           </form>
-          <div className="mt-[1.2em]">
+          {/* <div className="mt-[1.2em]">
             <Buttons.custom_outline_button outline_color="border-gray-400">
               <div className="flex justify-center items-center py-1 space-x-3">
                 <img srcSet={GoogleLogo} alt="" className="w-[1.3em]" />
@@ -98,7 +90,7 @@ export default () => {
                 </p>
               </div>
             </Buttons.custom_outline_button>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

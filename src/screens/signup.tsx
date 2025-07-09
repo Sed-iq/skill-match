@@ -6,6 +6,7 @@ import Buttons from "../components/buttons";
 import GoogleLogo from "../assets/google_2504739 1.png";
 import { FaArrowLeft } from "react-icons/fa";
 import { useNavigate } from "react-router";
+import { Toast } from "../utils/toast_utils";
 
 export default () => {
   const AuthStore = useSignUpInputStore();
@@ -84,11 +85,14 @@ export default () => {
               value={AuthStore.password_again}
               onChanged={(value) => AuthStore.setPasswordAgain(value)}
             />
-            <Buttons.primary_button>
+            <Buttons.primary_button onClick={()=> {
+              Toast.success("Signin with your details")
+              navigate("/auth/signin")
+            }}>
               <p className="text-sm font-medium">Sign Up</p>
             </Buttons.primary_button>
           </div>
-          <div className="space-y-6 mt-[1.2em]">
+          {/* <div className="space-y-6 mt-[1.2em]">
             <div className="flex space-x-5 justify-between items-center">
               <div className=" border flex-1 border-gray-300"></div>
               <p className="text-sm text-gray-700">or</p>
@@ -103,7 +107,7 @@ export default () => {
                 </p>
               </div>
             </Buttons.custom_outline_button>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
