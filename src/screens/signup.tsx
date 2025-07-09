@@ -85,29 +85,15 @@ export default () => {
               value={AuthStore.password_again}
               onChanged={(value) => AuthStore.setPasswordAgain(value)}
             />
-            <Buttons.primary_button onClick={()=> {
-              Toast.success("Signin with your details")
-              navigate("/auth/signin")
-            }}>
+            <Buttons.primary_button
+              onClick={() => {
+                Toast.success("Signin with your details");
+                navigate("/auth/signin");
+              }}
+            >
               <p className="text-sm font-medium">Sign Up</p>
             </Buttons.primary_button>
           </div>
-          {/* <div className="space-y-6 mt-[1.2em]">
-            <div className="flex space-x-5 justify-between items-center">
-              <div className=" border flex-1 border-gray-300"></div>
-              <p className="text-sm text-gray-700">or</p>
-              <div className=" border flex-1 border-gray-300"></div>
-            </div>
-
-            <Buttons.custom_outline_button outline_color="border-gray-400">
-              <div className="flex justify-center items-center py-1 space-x-3">
-                <img srcSet={GoogleLogo} alt="" className="w-[1.3em]" />
-                <p className="text-sm text-gray-500 font-medium">
-                  Continue with Google
-                </p>
-              </div>
-            </Buttons.custom_outline_button>
-          </div> */}
         </div>
       </div>
     </div>
