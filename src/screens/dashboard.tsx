@@ -5,6 +5,10 @@ import Course_card from "../components/course_card";
 import MetaLogo from "../assets/Meta_Platforms_Inc._logo.png";
 import { SiCoursera, SiGeeksforgeeks, SiYoutube } from "react-icons/si";
 import Job_card from "../components/job_card";
+import useLogoutDialogStore from "../stores/logout-store";
+import Buttons from "../components/buttons";
+import { NavigateFunction, useNavigate } from "react-router";
+import { Toast } from "../utils/toast_utils";
 
 const courseCategories: CourseCategoryModel[] = [
   {
@@ -155,9 +159,43 @@ const jobList: JobModel[] = [
   },
 ];
 
+function DialogPrompt({navigate} : { navigate: NavigateFunction }) {
+  return (
+    <div
+      id="outer-area"
+      onClick={(e) => {
+        // @ts-ignore
+        if (e.target.id == "outer-area") {
+          diaLogPromptStore.setShowModal(false);
+        }
+      }}
+      className="w-full h-full flex items-center justify-center fixed z-50 bg-[#4949495e]"
+    >
+      <div className="w-[340px] py-5 px-5 bg-white rounded">
+        <p className="text-xl font-bold">Logout</p>
+        <div className="bg-gray-700 mb-2 p-[0.2px]"></div>
+        <p className="text-sm mb-5 text-gray-700">
+          Are you sure you want to logout? (you have to log back in to access
+          these features)
+        </p>
+        <Buttons.primary_button onClick={()=> {
+          localStorage.clear()
+          navigate('/auth/signin')
+          Toast.warning('Please signin to proceed')
+        }}>
+          <p className="text-sm text-white">Logout</p>
+        </Buttons.primary_button>
+      </div>
+    </div>
+  );
+}
+const diaLogPromptStore = useLogoutDialogStore.getState();
 export default () => {
+  const dialogStore = useLogoutDialogStore()
+  const navigate = useNavigate()
   return (
     <div>
+      {dialogStore.showModal ? <DialogPrompt navigate={navigate}/> : null}
       <Nav_bar />
       {courseCategories.map((item, index) => {
         return (
@@ -233,6 +271,8 @@ function SectionHeading({
   );
 }
 
+function LogoutUser() {}
+
 function Nav_bar() {
   return (
     <div className="w-full top-0 sticky backdrop-blur-sm bg-[#ffffffa1] z-10 h-[4.7em] px-[2em] flex items-center justify-between border-b-2 border-gray-5001">
@@ -254,6 +294,13 @@ function Nav_bar() {
           </span>{" "}
           jobs
         </p>
+        <button
+        onClick={()=> {
+          useLogoutDialogStore.getState().setShowModal(true);
+        }}
+        className="mx-3 bg-red-600 px-3 py-2 rounded text-xs font-bold text-white">
+          Logout
+        </button>
       </div>
     </div>
   );

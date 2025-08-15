@@ -25,3 +25,8 @@ interface SigninInputStore {
   setEmail: (value: string) => void;
   setPassword: (value: string) => void;
 }
+
+interface LogoutPromptModalState {
+  showModal: boolean;
+  setShowModal: (value: boolean)=> void;
+}
