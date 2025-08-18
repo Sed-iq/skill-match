@@ -52,48 +52,57 @@ export default () => {
               Fill in your details to begin
             </p>
           </div>
-          <div className="space-y-4">
-            <Input_fields
-              input_id="name"
-              required
-              hint="Enter your fullname"
-              type="text"
-              value={AuthStore.full_name}
-              onChanged={(value) => AuthStore.setFullName(value)}
-            />
-            <Input_fields
-              input_id="email"
-              required
-              hint="Enter your email address"
-              type=""
-              value={AuthStore.email}
-              onChanged={(value) => AuthStore.setEmail(value)}
-            />
-            <Input_fields
-              input_id="password"
-              required
-              hint="Enter your Password (8 - 20 characters)"
-              type="password"
-              value={AuthStore.password}
-              onChanged={(value) => AuthStore.setPassword(value)}
-            />
-            <Input_fields
-              input_id="password_again"
-              required
-              hint="Confirm your password"
-              type="password"
-              value={AuthStore.password_again}
-              onChanged={(value) => AuthStore.setPasswordAgain(value)}
-            />
-            <Buttons.primary_button
-              onClick={() => {
-                Toast.success("Signin with your details");
+          <form
+            action=""
+            onSubmit={(event) => {
+              event.preventDefault();
+              const find = localStorage.getItem(AuthStore.email);
+              if (find != null) {
+                Toast.error('Email has already been used, signin instead')
+              } else {
+                localStorage.setItem(AuthStore.email, AuthStore.password);
                 navigate("/auth/signin");
-              }}
-            >
-              <p className="text-sm font-medium">Sign Up</p>
-            </Buttons.primary_button>
-          </div>
+              }
+            }}
+          >
+            <div className="space-y-4">
+              <Input_fields
+                input_id="name"
+                required
+                hint="Enter your fullname"
+                type="text"
+                value={AuthStore.full_name}
+                onChanged={(value) => AuthStore.setFullName(value)}
+              />
+              <Input_fields
+                input_id="email"
+                required
+                hint="Enter your email address"
+                type=""
+                value={AuthStore.email}
+                onChanged={(value) => AuthStore.setEmail(value)}
+              />
+              <Input_fields
+                input_id="password"
+                required
+                hint="Enter your Password (8 - 20 characters)"
+                type="password"
+                value={AuthStore.password}
+                onChanged={(value) => AuthStore.setPassword(value)}
+              />
+              <Input_fields
+                input_id="password_again"
+                required
+                hint="Confirm your password"
+                type="password"
+                value={AuthStore.password_again}
+                onChanged={(value) => AuthStore.setPasswordAgain(value)}
+              />
+              <Buttons.primary_button>
+                <p className="text-sm font-medium">Sign Up</p>
+              </Buttons.primary_button>
+            </div>
+          </form>
         </div>
       </div>
     </div>

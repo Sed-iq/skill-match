@@ -56,7 +56,18 @@ export default () => {
           </div>
           <form
             onSubmit={(event) => {
-              Signin(event, navigate);
+              event.preventDefault();
+              const findUser = localStorage.getItem(AuthStore.email);
+              if (findUser != null) {
+                if (findUser == AuthStore.password) {
+                  Toast.success("Logged in successful");
+                  navigate("/dashboard");
+                } else {
+                  Toast.error("Incorrect email or password");
+                }
+              } else {
+                Toast.error("Incorrect email or password");
+              }
             }}
           >
             <div className="space-y-4">
